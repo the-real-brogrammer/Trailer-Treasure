@@ -1,2 +1,4 @@
-# Trailer-Treasure
-An app designed to log trailers for movies currently playing in theaters
+# Trailer-Treasure [br][br]
+##An app designed to log trailers for movies currently playing in theaters
+
+Powered by [The Movie Database](themoviedb.org)
