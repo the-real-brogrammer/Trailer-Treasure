@@ -30,4 +30,4 @@ Monetize with advertisements from studios with upcoming movies as well as 3rd pa
 ## Vision: To become the go-to movie discovery and trailer community app, making it easier and more fun to connect with films.
 
 <br><br>
-Powered by [The Movie Database](themoviedb.org)
+Powered by [The Movie Database](https://www.themoviedb.org)
