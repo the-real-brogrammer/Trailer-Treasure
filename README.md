@@ -11,11 +11,9 @@ Simple UI – Clean navigation with tabs for Home, Add Trailers, and Search <br>
 <br>
 
 ## Use Cases + Target Audiences 
-Casual movie goers – Clean UI to navigate through all popular movies out now
-
-Cinephiles – Find all the trailers playing for a given movie
-
-Planners – Track upcoming releases and get notified when movies whose trailers they liked hit theaters<br>
+- Casual movie goers – Clean UI to navigate through all popular movies out now
+- Cinephiles – Find all the trailers playing for a given movie
+- Planners – Track upcoming releases and get notified when movies whose trailers they liked hit theaters<br>
 <br>
 
 ## Why Now
