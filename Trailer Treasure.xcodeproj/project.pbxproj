@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		0361BE9E2E714BEF0035FC76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0361BE832E714BEE0035FC76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0361BE8A2E714BEE0035FC76;
+			remoteInfo = "Trailer Treasure";
+		};
+		0361BEA82E714BEF0035FC76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0361BE832E714BEE0035FC76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0361BE8A2E714BEE0035FC76;
+			remoteInfo = "Trailer Treasure";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0361BE8B2E714BEE0035FC76 /* Trailer Treasure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trailer Treasure.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0361BE9D2E714BEF0035FC76 /* Trailer TreasureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Trailer TreasureTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0361BEA72E714BEF0035FC76 /* Trailer TreasureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Trailer TreasureUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0361BE8D2E714BEE0035FC76 /* Trailer Treasure */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Trailer Treasure";
+			sourceTree = "<group>";
+		};
+		0361BEA02E714BEF0035FC76 /* Trailer TreasureTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Trailer TreasureTests";
+			sourceTree = "<group>";
+		};
+		0361BEAA2E714BEF0035FC76 /* Trailer TreasureUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Trailer TreasureUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0361BE882E714BEE0035FC76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0361BE9A2E714BEF0035FC76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0361BEA42E714BEF0035FC76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0361BE822E714BEE0035FC76 = {
+			isa = PBXGroup;
+			children = (
+				0361BE8D2E714BEE0035FC76 /* Trailer Treasure */,
+				0361BEA02E714BEF0035FC76 /* Trailer TreasureTests */,
+				0361BEAA2E714BEF0035FC76 /* Trailer TreasureUITests */,
+				0361BE8C2E714BEE0035FC76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0361BE8C2E714BEE0035FC76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0361BE8B2E714BEE0035FC76 /* Trailer Treasure.app */,
+				0361BE9D2E714BEF0035FC76 /* Trailer TreasureTests.xctest */,
+				0361BEA72E714BEF0035FC76 /* Trailer TreasureUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0361BE8A2E714BEE0035FC76 /* Trailer Treasure */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0361BEB12E714BEF0035FC76 /* Build configuration list for PBXNativeTarget "Trailer Treasure" */;
+			buildPhases = (
+				0361BE872E714BEE0035FC76 /* Sources */,
+				0361BE882E714BEE0035FC76 /* Frameworks */,
+				0361BE892E714BEE0035FC76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0361BE8D2E714BEE0035FC76 /* Trailer Treasure */,
+			);
+			name = "Trailer Treasure";
+			packageProductDependencies = (
+			);
+			productName = "Trailer Treasure";
+			productReference = 0361BE8B2E714BEE0035FC76 /* Trailer Treasure.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0361BE9C2E714BEF0035FC76 /* Trailer TreasureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0361BEB42E714BEF0035FC76 /* Build configuration list for PBXNativeTarget "Trailer TreasureTests" */;
+			buildPhases = (
+				0361BE992E714BEF0035FC76 /* Sources */,
+				0361BE9A2E714BEF0035FC76 /* Frameworks */,
+				0361BE9B2E714BEF0035FC76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0361BE9F2E714BEF0035FC76 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0361BEA02E714BEF0035FC76 /* Trailer TreasureTests */,
+			);
+			name = "Trailer TreasureTests";
+			packageProductDependencies = (
+			);
+			productName = "Trailer TreasureTests";
+			productReference = 0361BE9D2E714BEF0035FC76 /* Trailer TreasureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0361BEA62E714BEF0035FC76 /* Trailer TreasureUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0361BEB72E714BEF0035FC76 /* Build configuration list for PBXNativeTarget "Trailer TreasureUITests" */;
+			buildPhases = (
+				0361BEA32E714BEF0035FC76 /* Sources */,
+				0361BEA42E714BEF0035FC76 /* Frameworks */,
+				0361BEA52E714BEF0035FC76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0361BEA92E714BEF0035FC76 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				0361BEAA2E714BEF0035FC76 /* Trailer TreasureUITests */,
+			);
+			name = "Trailer TreasureUITests";
+			packageProductDependencies = (
+			);
+			productName = "Trailer TreasureUITests";
+			productReference = 0361BEA72E714BEF0035FC76 /* Trailer TreasureUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0361BE832E714BEE0035FC76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					0361BE8A2E714BEE0035FC76 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					0361BE9C2E714BEF0035FC76 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 0361BE8A2E714BEE0035FC76;
+					};
+					0361BEA62E714BEF0035FC76 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 0361BE8A2E714BEE0035FC76;
+					};
+				};
+			};
+			buildConfigurationList = 0361BE862E714BEE0035FC76 /* Build configuration list for PBXProject "Trailer Treasure" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0361BE822E714BEE0035FC76;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0361BE8C2E714BEE0035FC76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0361BE8A2E714BEE0035FC76 /* Trailer Treasure */,
+				0361BE9C2E714BEF0035FC76 /* Trailer TreasureTests */,
+				0361BEA62E714BEF0035FC76 /* Trailer TreasureUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0361BE892E714BEE0035FC76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0361BE9B2E714BEF0035FC76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0361BEA52E714BEF0035FC76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0361BE872E714BEE0035FC76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0361BE992E714BEF0035FC76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0361BEA32E714BEF0035FC76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0361BE9F2E714BEF0035FC76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0361BE8A2E714BEE0035FC76 /* Trailer Treasure */;
+			targetProxy = 0361BE9E2E714BEF0035FC76 /* PBXContainerItemProxy */;
+		};
+		0361BEA92E714BEF0035FC76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0361BE8A2E714BEE0035FC76 /* Trailer Treasure */;
+			targetProxy = 0361BEA82E714BEF0035FC76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0361BEAF2E714BEF0035FC76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 0361BE8D2E714BEE0035FC76 /* Trailer Treasure */;
+			baseConfigurationReferenceRelativePath = key.xcconfig;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = W6JY2GH78H;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0361BEB02E714BEF0035FC76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = W6JY2GH78H;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0361BEB22E714BEF0035FC76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Trailer Treasure/Trailer Treasure.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W6JY2GH78H;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Trailer-Treasure-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahoy.Trailer-Treasure1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0361BEB32E714BEF0035FC76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Trailer Treasure/Trailer Treasure.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W6JY2GH78H;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Trailer-Treasure-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahoy.Trailer-Treasure1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0361BEB52E714BEF0035FC76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W6JY2GH78H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahoy.Trailer-TreasureTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trailer Treasure.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Trailer Treasure";
+			};
+			name = Debug;
+		};
+		0361BEB62E714BEF0035FC76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W6JY2GH78H;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahoy.Trailer-TreasureTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trailer Treasure.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Trailer Treasure";
+			};
+			name = Release;
+		};
+		0361BEB82E714BEF0035FC76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W6JY2GH78H;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahoy.Trailer-TreasureUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Trailer Treasure";
+			};
+			name = Debug;
+		};
+		0361BEB92E714BEF0035FC76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W6JY2GH78H;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahoy.Trailer-TreasureUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Trailer Treasure";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0361BE862E714BEE0035FC76 /* Build configuration list for PBXProject "Trailer Treasure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0361BEAF2E714BEF0035FC76 /* Debug */,
+				0361BEB02E714BEF0035FC76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0361BEB12E714BEF0035FC76 /* Build configuration list for PBXNativeTarget "Trailer Treasure" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0361BEB22E714BEF0035FC76 /* Debug */,
+				0361BEB32E714BEF0035FC76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0361BEB42E714BEF0035FC76 /* Build configuration list for PBXNativeTarget "Trailer TreasureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0361BEB52E714BEF0035FC76 /* Debug */,
+				0361BEB62E714BEF0035FC76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0361BEB72E714BEF0035FC76 /* Build configuration list for PBXNativeTarget "Trailer TreasureUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0361BEB82E714BEF0035FC76 /* Debug */,
+				0361BEB92E714BEF0035FC76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0361BE832E714BEE0035FC76 /* Project object */;
+}

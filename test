@@ -1,0 +1,313 @@
+import SwiftUI
+import CoreData
+import Foundation
+import SafariServices
+
+// Store movie info
+struct Movie: Codable, Identifiable {
+    let id: Int
+    var title: String
+    let overview: String?
+    let release_date: String
+    let poster_path: String?
+}
+
+// Hold list of decoded movies
+struct movieJSON: Codable {
+    let results: [Movie]
+}
+
+struct VideoJSON: Codable {
+    let results: [Video]
+}
+
+struct Video: Codable {
+    let key: String
+    let site: String
+    let name: String
+    let id: String
+}
+
+struct TrailerSafariView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = SFSafariViewController
+    
+    var url: URL
+    
+    func makeUIViewController(context: Context) -> SFSafariViewController {
+        SFSafariViewController(url: url)
+    }
+    
+    func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {
+        
+    }
+}
+
+struct ContentView: View {
+    var body: some View{
+        TabView {
+            // Homepage (TODO: have in theaters and upcoming movies tabs)
+            NavigationStack {
+                HomeView()
+            }
+            .tabItem {
+                Label("Home", systemImage: "house")
+            }
+            // Add trailers page (TODO: allow users to submit trailers for a given movie)
+            NavigationStack {
+                AddView()
+            }
+            .tabItem {
+                Label("Add Trailers", systemImage: "plus.app")
+            }
+            // Search movies page (TODO: display movie posters and clean up UI, allow clickable movies to be brought to movie page)
+            NavigationStack {
+                SearchView()
+            }
+            .tabItem {
+                Label("Search", systemImage: "magnifyingglass")
+            }
+        }
+    }
+}
+
+struct SearchView: View {
+    @State private var searchText: String = ""
+    @State private var movies: [Movie] = []
+    
+    var body: some View {
+            // Print list of movies
+            List(movies) { movie in
+                HStack() {
+                    
+                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster_path ?? "")")){
+                        image in image.resizable()
+                    }
+                    placeholder: {
+                        ProgressView()
+                    }
+                    .frame(width: 100, height:150)
+                    VStack(){
+                        Text(movie.title)
+                            .font(.system(size:24)) +
+                        Text(" (\(movie.release_date.prefix(4)))")
+                            .font(.system(size:12))
+                    }
+                    }
+            }
+            .navigationTitle("Movies")
+        
+        .searchable(text: $searchText)
+        .onSubmit(of: .search) {
+            Task {
+                await searchMovie(query: searchText)
+            }
+        }
+        
+        
+        Text("Hello, TMDB!")
+            .onAppear {
+                Task{
+                    
+                }
+            }
+    }
+        func searchMovie(query text: String) async{
+            guard let url = URL(string: "https://api.themoviedb.org/3/search/movie")
+             else {
+                print("Invalid URL")
+                return
+            }
+            var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+            let queryItems: [URLQueryItem] = [
+                //URLQueryItem(name: "api_key", value: "TMDB_API_KEY"),
+                URLQueryItem(name: "query", value: text),
+                URLQueryItem(name: "include_adult", value: "false"),
+                URLQueryItem(name: "language", value: "en-US"),
+                URLQueryItem(name: "page", value: "1"),
+            ]
+            components.queryItems = components.queryItems.map { $0 + queryItems } ?? queryItems
+            
+            let key = Bundle.main.object(forInfoDictionaryKey: "TMDB_API_KEY")
+            as! String
+            
+            var request = URLRequest(url: components.url!)
+            request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
+            request.setValue("application/json", forHTTPHeaderField: "accept")
+            
+            
+            request.httpMethod = "GET"
+            request.timeoutInterval = 10
+            
+            do{
+                let (data, _) = try await URLSession.shared.data(for: request)
+                let moviesRes = try JSONDecoder().decode(movieJSON.self, from: data)
+                self.movies = moviesRes.results
+            
+            }
+            
+            catch{
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+struct AddView: View {
+    var body: some View {
+        Text("Add trailers here!")
+            .navigationTitle(Text("Add Trailers"))
+            
+    }
+}
+
+struct movieDetail: View {
+    let movie: Movie
+    @Environment(\.presentationMode) var presentationMode
+    @State private var videos: [Video] = []
+    @Binding var isShowing: Bool
+    @State private var url: URL?
+    @State private var show = false
+    
+    var body: some View {
+        List {
+            VStack(){
+                HStack(spacing: 16) {
+                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster_path ?? "")")) {
+                        img in img.resizable().scaledToFit()
+                    } placeholder: {
+                        ProgressView()
+                    } .frame(width: isShowing ? 100 : 150, height: isShowing ? 100 : 150)
+                    //.clipShape(Circle())
+                    
+                    VStack(alignment: .leading) {
+                        Text(movie.title)
+                            .font(.system(size:24))
+                        HStack(){
+                            Text(String(movie.release_date.prefix(4)) + "    ")
+                            //Spacer()
+                            
+                            if let first = videos.first,
+                               let trailerUrl = URL(string: "https://www.youtube.com/watch?v=\(first.key)"){
+                                Button("Trailer") {
+                                    self.url = trailerUrl
+                                    self.show = true
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+                Text(movie.overview ?? "")
+                    .font(.system(size:17))
+            }
+        }
+            .sheet(isPresented: $show) {
+                if let url = url {
+                    TrailerSafariView(url: url)
+                }
+            }
+            .task{
+                await self.loadVideo()
+            }
+        }
+        
+         func loadVideo() async {
+            guard let b = URL(string: "https://api.themoviedb.org/3/movie/\(movie.id)/videos") else {return}
+            var r = URLRequest(url: b)
+            
+            let key = Bundle.main.object(forInfoDictionaryKey: "TMDB_API_KEY") as! String
+            r.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
+            r.setValue( "application/json", forHTTPHeaderField: "accept")
+            
+            do {
+                let (data, _) = try await URLSession.shared.data(for: r)
+                let res = try JSONDecoder().decode(VideoJSON.self, from: data)
+                self.videos = res.results
+            }
+            catch {
+                print("Could not load video: ", error)
+                self.videos = []
+            }
+        }
+    }
+            
+
+    
+struct HomeView: View {
+    @State private var movies: [Movie] = []
+    var body: some View {
+
+        NavigationStack {
+            // Print list of movies
+            List(movies) { movie in
+                NavigationLink(destination: movieDetail(movie: movie, isShowing: .constant(false))){
+                    HStack {
+                        
+                        AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster_path ?? "")")){
+                            image in image.resizable()
+                        }
+                        placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 100, height:150)
+                        VStack(){
+                            Text(movie.title)
+                                .font(.system(size:24)) +
+                            Text(" (\(movie.release_date.prefix(4)))")
+                                .font(.system(size:12))
+                        }
+                    }
+                }
+            }
+            .navigationTitle("In Theaters")
+            .task{
+                await nowPlaying()
+            }
+        }
+        
+    }
+            
+
+    func nowPlaying() async{
+        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing")!
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
+        let queryItems: [URLQueryItem] = [
+            //URLQueryItem(name: "api_key", value: "TMDB_API_KEY"),
+            URLQueryItem(name: "include_adult", value: "false"),
+            URLQueryItem(name: "language", value: "en-US"),
+            URLQueryItem(name: "page", value: "1"),
+        ]
+        components.queryItems = components.queryItems.map { $0 + queryItems } ?? queryItems
+        
+        let key = Bundle.main.object(forInfoDictionaryKey: "TMDB_API_KEY")
+        as! String
+        
+        var request = URLRequest(url: components.url!)
+        request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        
+        
+        request.httpMethod = "GET"
+        request.timeoutInterval = 10
+        
+        do{
+            let (data, _) = try await URLSession.shared.data(for: request)
+            let moviesRes = try JSONDecoder().decode(movieJSON.self, from: data)
+            self.movies = moviesRes.results
+        
+        }
+        
+        catch{
+            print("Error: \(error)")
+        }
+    }
+}
+
+    
+    
+
+#Preview {
+    ContentView()
+    //ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+}
+
+
