@@ -13,7 +13,7 @@ import SafariServices
 // Store movie info
 struct Movie: Codable, Identifiable {
     let id: Int
-    var title: String
+    let title: String
     let overview: String?
     let release_date: String
     let poster_path: String?
@@ -34,10 +34,10 @@ struct VideoJSON: Codable {
 
 // Store trailer info
 struct Video: Codable {
-    let key: String
-    let site: String
-    let name: String
-    let id: String
+    let key: String  // key for link
+    let site: String // site video is on
+    let name: String // name of trailer
+    let id: String   // TMDB id
 }
 
 
@@ -186,10 +186,14 @@ struct movieDetail: View {
     @State private var videos: [Video] = []
     @State private var url: URL?
     @State private var show = false
+    @State private var isLoadingTrailers: Bool = true
+    
+    @State private var trailerIDs: [String] = []
+    @State private var trailerList: [Movie] = []
     
     var body: some View {
-        List {
-            VStack(){
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16){
                 HStack(spacing: 16) {
                     AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster_path ?? "")")) {
                         img in img.resizable().scaledToFit()
@@ -200,45 +204,131 @@ struct movieDetail: View {
                     VStack(alignment: .leading) {
                         Text(movie.title)
                             .font(.system(size:24))
+                            .bold()
+                            
+                            //.padding(.top, 10)
                         HStack(){
                             Text(String(movie.release_date.prefix(4)) + "    ")
+                                .foregroundColor(.gray)
+                                .font(.system(size: 14))
+                            //.padding(.top, 1)
                             //Spacer()
                             
                             if let first = videos.first,
                                let trailerUrl = URL(string: "https://www.youtube.com/watch?v=\(first.key)"){
                                 Button("Trailer") {
-                                    self.url = trailerUrl
-                                    self.show = true
+                                    url = trailerUrl
+                                    //self.show = true
                                 }
+                                //.buttonStyle(.borderedProminent)
+                                //.padding(.top, 1)
                             }
                         }
                     }
                 }
                 Text(movie.overview ?? "")
                     .font(.system(size:17))
+                    .padding(.top, 4)
+                
+                Divider()
+                
+                if isLoadingTrailers == true {
+                    ProgressView()
+                } else if trailerList.isEmpty {
+                    Text("No trailers added yet!")
+                        .italic()
+                        .foregroundColor(.gray)
+                        .padding(.top, 10)
+                } else {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Previews for this movie:")
+                            .bold(true)
+                            .padding(.vertical, 8)
+                        
+                        ForEach(trailerList) { preview in
+                            NavigationLink(destination: movieDetail(movie: preview)) {
+                                HStack(spacing: 12) {
+                                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(preview.poster_path ?? "")")) {
+                                        image in image.resizable()
+                                    } placeholder: { ProgressView() }
+                                        .frame(width: 90, height: 135)
+                                        .cornerRadius(8)
+                                    
+                                    VStack(alignment: .leading) {
+                                        Text(preview.title)
+                                            .font(.system(size: 18))
+                                            .foregroundColor(.black)
+                                            .lineLimit(2)
+                                            .multilineTextAlignment(.leading)
+                                        Text("(\(preview.release_date.prefix(4)))")
+                                            .font(.system(size: 12))
+                                            .foregroundColor(.gray)
+                                        
+                                    }
+                                    
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(.gray)
+                                        .imageScale(.small)
+                                        .padding(6)
+                                }
+                            }
+                        }
+                    }
+                }
             }
+            
+            .padding()
         }
         .sheet(item: $url){ u in
             TrailerSafariView(url: u)
         }
-        /*
-        .sheet(isPresented: $show) {
-            if let url = url {
-                TrailerSafariView(url: url)
-            }
-        }
-         */
+        
         .task{
-            await self.loadVideo()
+            await loadVideo()
+            await loadTrailers()
         }
     }
     
+    
+    
     func loadVideo() async {
-        
         await self.videos = apiCall.shared.loadVideo(movieID: movie.id)
     }
+    
+    func loadTrailers() async {
+        let stored = await DBCall.shared.getTrailers(for: movie.id)
+        
+        //var temp: [Movie] = []
+        var parsedTrailers: [(id: Int, title: String, tally: Int)] = []
+        
+        for t in stored {
+            let parts = t.components(separatedBy: "|").map { $0.trimmingCharacters(in: .whitespaces) }
+            if parts.count >= 3,
+               let id = Int(parts[0]),
+               let tally = Int(parts[2]) {
+                parsedTrailers.append((id, parts[1], tally))
+            }
+        }
+        
+        let sortedTrailers = parsedTrailers.sorted {
+            $0.tally > $1.tally
+        }
+        
+        var temp: [Movie] = []
+        for trailer in sortedTrailers {
+            if let movie = await apiCall.shared.searchID(id: trailer.id),
+               movie.id != self.movie.id {
+                temp.append(movie)
+            }
+        }
+        
+        
+        trailerList = temp
+        isLoadingTrailers = false
+        
+    }
 }
-
 
 
 struct movieEdit: View {
@@ -344,8 +434,13 @@ struct movieEdit: View {
                 }
                 
                 Button("Submit"){
+                    print("button pressed")
                     Task {
-                        print(chosenMovies)
+                        print("made it")
+                        //print(chosenMovies)
+                        
+                        await DBCall.shared.addMovie(movie: movie, trailers: chosenMovies)
+                        print("exit")
                     }
                     
                 }
@@ -427,3 +522,12 @@ struct HomeView: View {
 #Preview {
     ContentView()
 }
+
+
+
+
+
+
+
+
+

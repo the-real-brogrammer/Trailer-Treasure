@@ -49,6 +49,34 @@ class apiCall {
     }
     
     
+    func searchID(id: Int) async -> Movie? {
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(id)?language=en-US")
+        else {
+            print("Invalid URL")
+            return nil
+        }
+        
+        let key = Bundle.main.object(forInfoDictionaryKey: "TMDB_API_KEY") as! String
+        
+        var request = URLRequest(url: url)
+        request.setValue("Bearer \(key)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        
+        request.httpMethod = "GET"
+        request.timeoutInterval = 10
+        
+        do{
+            let (data, _) = try await URLSession.shared.data(for: request)
+            let moviesRes = try JSONDecoder().decode(Movie.self, from: data)
+            return moviesRes
+            
+        }
+        catch{
+            print("Error: \(error)")
+            return nil
+        }
+    }
+    
     
     func loadVideo(movieID: Int) async -> [Video] {
         guard let b = URL(string: "https://api.themoviedb.org/3/movie/\(movieID)/videos")
